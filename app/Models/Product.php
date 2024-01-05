@@ -15,7 +15,7 @@ class Product extends Model
      * $this->attributes['image'] - string - contains the product image
      * $this->attributes['price'] - int - contains the product price
      * $this->attributes['created_at'] - timestamp - contains the product creation date
-     * $this->attributes['uupdated_at'] - timestamp - contains the product update date
+     * $this->attributes['updated_at'] - timestamp - contains the product update date
      */
     public static function validate($request)
     {
@@ -35,7 +35,15 @@ class Product extends Model
         'created_at',
         'updated_at',
      ];
-    
+
+     public static function sumPricesByQuantities($products, $productsInSession)
+     {
+        $total = 0;
+        foreach($products as $product){
+            $total += ($product->getPrice()*$productsInSession[$product->getId()]);
+        }
+        return $total;
+     }
 
     public function getId()
     {
@@ -83,7 +91,7 @@ class Product extends Model
     }
     public function setCreatedAt($createdAt)
     {
-        $this->attributes['price'] = $createdAt;
+        $this->attributes['created_at'] = $createdAt;
     }
     public function getUpdatedAt()
     {
@@ -92,5 +100,18 @@ class Product extends Model
     public function setUpdatedAt($updatedAt)
     {
         $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+    public function getItems()
+    {
+        return $this->items;
+    }
+    public function setItems($items)
+    {
+        $this->items = $items;
     }
 }

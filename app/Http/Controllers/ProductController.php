@@ -22,7 +22,7 @@ class ProductController extends Controller
 
         $viewData = [];
         $viewData["title"] = $product->getName()." - Online Store";
-        $viewData["subtitle"] = $product->getName()." - Product Information";
+        $viewData["subtitle"] = "Informasi Produk - ".$product->getName();
         $viewData["product"] = $product;
 
         return view('product.show')->with("viewData", $viewData);

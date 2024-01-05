@@ -1,13 +1,28 @@
+body{
+    background-color: #f1ece0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.content{
+    height:auto;
+    min-height:70vh;
+}
+
+.title{
+    font-family: 'Pacifico', cursive;
+    
+}
+
 .bg-secondary{
-    background-color: #2c3450 !important;
+    background-color: #2e313c !important;
 }
 
 .copyright{
-    background-color: #1a252f;
+    background-color: #452f37;
 }
 
 .bg-primary{
-    background-color: #1abc9c !important;
+    background-color: #c69f5c !important;
 }
 
 .nav{
