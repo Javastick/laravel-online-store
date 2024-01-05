@@ -24,7 +24,6 @@ class AdminProductController extends Controller
             $image = $request->file('image');
             $saveImage = $image->store('public/img');
             $fullPath = explode('/', $saveImage);
-            // dd($saveImage);
             $imageName = last($fullPath);
         }
 
@@ -33,8 +32,6 @@ class AdminProductController extends Controller
             "description" => $request->input('description'),
             "price" => $request->input('price'),
             "image" => $imageName,
-            "created_at" => now(),
-            "updated_at" => now(),
         ]);
 
         return back();
