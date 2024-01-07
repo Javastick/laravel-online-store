@@ -1,5 +1,3 @@
-<h1 align="center"><a href="https://laravel.com" target="_blank">Laravel Online Store</a></h1>
-
 # Online Store Laravel Project
 
 Proyek ini bertujuan untuk membangun sebuah aplikasi web Online Store menggunakan Laravel, yang dikembangkan dengan mengikuti arahan yang disajikan dalam buku "Practical Laravel: Develop Clean MVC Web Applications" yang ditulis oleh Daniel Correa. Proyek ini dibuat sebagai bahan belajar pribadi untuk mendalami framework Laravel.
