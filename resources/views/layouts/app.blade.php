@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <title>@yield('title', 'Online Store')</title>
     {{-- fonts --}}
@@ -28,20 +29,29 @@
                 <div class="navbar-nav ms-auto">
                     <a href="{{ route('home.index') }}" class="nav-link active">Beranda</a>
                     <a href="{{ route('product.index') }}" class="nav-link active">Produk</a>
-                    <a href="{{ route('cart.index') }}" class="nav-link active">Keranjang</a>
+
                     <a href="{{ route('home.about') }}" class="nav-link active">Tentang</a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
                         <a href="{{ route('login') }}" class="nav-link active">Login</a>
                         <a href="{{ route('register') }}" class="nav-link active">Register</a>
                     @else
-                        <a href="{{ route('myaccount.orders') }}" class="nav-link active">Pesanan Saya</a>
-                        <form action="{{ route('logout') }}" id="logout" method="POST">
-                            <a role="button" class="nav-link active"
-                                onclick="document.getElementById('logout').submit();">Logout</a>
-                            @csrf
-                        </form>
-                    @endguest
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="bi bi-gear text-white"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('myaccount.index') }}">Profil</a></li>
+                                <a href="{{ route('cart.index') }}" class="dropdown-item">Keranjang</a>
+                                <form action="{{ route('logout') }}" id="logout" method="POST">
+                                    <a role="button" class="dropdown-item"
+                                        onclick="document.getElementById('logout').submit();">Logout</a>
+                                    @csrf
+                                </form>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +69,7 @@
 
 
     {{-- footer --}}
-    <div class="copyright py-4 text-center text-white">
+    <div class="bg-secondary py-4 text-center text-white">
         <div class="container">
             <small>
                 Copyright -
@@ -71,6 +81,9 @@
             </small>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>

@@ -1,5 +1,5 @@
 body{
-    background-color: #f1ece0;
+    background-color: #e6e6e6;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -8,21 +8,25 @@ body{
     min-height:70vh;
 }
 
+.home{
+    background-image: url('/img/jumo.jpg');
+    height: 70vh;
+}
+
 .title{
     font-family: 'Pacifico', cursive;
-    
 }
 
 .bg-secondary{
-    background-color: #2e313c !important;
+    background-color: #1a1a1a !important;
 }
 
 .copyright{
-    background-color: #452f37;
+    background-color: #ed6d54 !important;
 }
 
 .bg-primary{
-    background-color: #c69f5c !important;
+    background-color: #26df9c !important;
 }
 
 .nav{
@@ -32,4 +36,8 @@ body{
 .img-card{
     height: 18vw;
     object-fit: cover;
+}
+
+.profile{
+    max-height: 750px;
 }

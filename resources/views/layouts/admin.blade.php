@@ -35,8 +35,8 @@
 
         <div class="col content-grey">
             <nav class="p-3 shadow text-end">
-                <span class="profile-font">Admin</span>
-                <img src="{{ asset('/img/undraw_profile.svg') }}" alt="" class="img-profile rounded-circle">
+                <span class="profile-font">{{ $viewData["admin"]->getName() }}</span>
+                <img src="/storage/img/{{ $viewData['admin']->getImage() }}" alt="" class="img-profile rounded-circle">
             </nav>
 
             <div class="g-0 m-5">

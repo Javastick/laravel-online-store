@@ -31,9 +31,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected function validate($request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'min:15', 'max:255'],
+            'phone' => ['required', 'string', 'regex:/^[0-9]{10,15}$/'],
+            'image' => ['image'],
+        ]);
+    }
     protected $fillable = [
         'name',
         'email',
+        'address',
+        'phone',
+        'image',
         'password',
         'balance',
         'created_at',
@@ -83,6 +95,30 @@ class User extends Authenticatable
     public function setEmail($email)
     {
         $this->attributes['email'] = $email;
+    }
+    public function getAddress()
+    {
+        return $this->attributes['address'];
+    }
+    public function setAddress($address)
+    {
+        $this->attributes['address'] = $address;
+    }
+    public function getPhone()
+    {
+        return $this->attributes['phone'];
+    }
+    public function setPhone($phone)
+    {
+        $this->attributes['phone'] = $phone;
+    }
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
     }
     public function getPassword()
     {

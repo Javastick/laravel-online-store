@@ -1,7 +1,7 @@
-@extends('layouts.app')
-@section('title', $viewData['title'])
-@section('subtitle', $viewData['subtitle'])
-@section('content')
+@extends('myaccount.index')
+@section('profile')
+<h3>Riwayat Pesanan</h3>
+<hr class="mt-2">
     @forelse ($viewData["orders"] as $order)
         <div class="card mb-4">
             <div class="card-header">

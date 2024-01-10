@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AdminProductController extends Controller
@@ -14,6 +15,7 @@ class AdminProductController extends Controller
         $viewData = [];
         $viewData['title'] = "Admin Page - Produk - Online Store";
         $viewData['products'] = Product::all();
+        $viewData['admin'] = Auth::user();
         return view('admin.product.index')->with("viewData", $viewData);
     }
     public function store(Request $request)

@@ -31,9 +31,11 @@ Route::middleware('auth')->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::get('/cart/delete', [CartController::class, 'delete'])->name('cart.delete');
     Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-
     Route::get('/cart/purchase', [CartController::class, 'purchase'])->name('cart.purchase');
-    Route::get('/my-account/orders', [MyAccountController::class, 'orders'])->name('myaccount.orders');
+
+    Route::get('/my-account', [MyAccountController::class, 'index'])->name('myaccount.index');
+    Route::get('/my-account/edit', [MyAccountController::class, 'edit'])->name('myaccount.edit');
+    Route::put('/my-account/update', [MyAccountController::class, 'update'])->name('myaccount.update');
 });
 
 Route::middleware('admin')->group(function(){
